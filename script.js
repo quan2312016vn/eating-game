@@ -77,13 +77,13 @@ function checkEating(){
     if (distance < foods[i].r + player.r) {
 
       if (player.r > foods[i].r){
-        player.r += foods[i].r/10;
+        player.r += foods[i].r/15;
         foods.splice(i, 1);
         return 1;
       }
 
       if (player.r < foods[i].r){
-        foods[i].r += player.r/10;
+        foods[i].r += player.r/15;
         score = player.r - 30;
         player.r = 0;
         return -1;
