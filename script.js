@@ -148,7 +148,7 @@ function handleEvent(e){
   cancelAnimationFrame(aniId);
   mouse.x = e.x;
   mouse.y = e.y;
-  requestAnimationFrame(move);
+  aniId = requestAnimationFrame(move);
 }
 
 startGame();
