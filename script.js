@@ -163,7 +163,10 @@ startGame();
 let reduce_speed;
 window.addEventListener("mousedown", function(){
   if(player.r > 31){
-    reduce_speed = setInterval(function(){ player.r -= 0.17; }, 100);
+    reduce_speed = setInterval(function(){ 
+      player.r -= 0.17; 
+      if(player.r - 0.17 < 30) clearInterVal(redude_speed); 
+    }, 100);
     speed = 5;
   }
 })
