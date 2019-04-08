@@ -114,7 +114,7 @@ function move(){
 
   if(checkEating() == -1) { //die
     drawFrame();
-    canvas.removeEventListener("mousemove", handleEvent);
+    window.removeEventListener("mousemove", handleEvent);
     cancelAnimationFrame(aniId);
     setTimeout(function(){
       clearTimeout(timeout);
@@ -130,7 +130,7 @@ function startGame(){
   //timer: 1 minute
   timeout = setTimeout(function(){
     score = player.r - 30;
-    canvas.removeEventListener("mousemove", handleEvent);
+    window.removeEventListener("mousemove", handleEvent);
     cancelAnimationFrame(aniId);
     let ans = confirm("Time is up!!! \nYour score is " + Math.trunc(score) + ".\nPlay again ?");
     if (ans) startGame();
@@ -143,7 +143,7 @@ function startGame(){
   player.draw();
   foodInit();
   drawFoods();
-  canvas.addEventListener("mousemove", handleEvent);
+  window.addEventListener("mousemove", handleEvent);
 }
 // handle Move Mouse
 function handleEvent(e){
@@ -156,10 +156,10 @@ function handleEvent(e){
 startGame();
 
 //bonus: speedup player
-canvas.addEventListener("mousedown", function(){
+window.addEventListener("mousedown", function(){
   speed = 5;
 })
 
-canvas.addEventListener("mouseup", function(){
+window.addEventListener("mouseup", function(){
   speed = 3;
 })
