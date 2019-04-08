@@ -4,7 +4,7 @@ canvas.height = innerHeight;
 let c = canvas.getContext("2d");
 let mouse;
 let aniId;
-let speed = 3;
+let speed = 2;
 let foods = [];
 let numberOfFoods = 1600;
 let colors = ["pink", "orange", "green", "blue", "gray", "black"];
@@ -157,9 +157,9 @@ startGame();
 
 //bonus: speedup player
 window.addEventListener("mousedown", function(){
-  speed = 5;
+  speed = 4;
 })
 
 window.addEventListener("mouseup", function(){
-  speed = 3;
+  speed = 2;
 })
