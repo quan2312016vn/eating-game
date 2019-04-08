@@ -30,11 +30,12 @@ Circle.prototype.draw = function(){
 }
 
 function foodInit(){
+  let color, x, y, r;
   for(let i = 0; i < numberOfFoods; i++){
-    let color = colors[Math.trunc((Math.random()*7))];
-    let x = Math.random() * (innerWidth + 10000) - 5000;
-    let y = Math.random() * (innerHeight + 10000) - 5000;
-    let r;
+    color = colors[Math.trunc((Math.random()*7))];
+    x = Math.random() * (innerWidth + 10000) - 5000;
+    y = Math.random() * (innerHeight + 10000) - 5000;
+    r;
 
     if (i > numberOfFoods/1.2) r = Math.random()* (200 - 30) + 30;
     else r = Math.random()* (50 - 5) + 5;
@@ -48,7 +49,7 @@ function foodInit(){
 }
 
 function drawFoods(){
-  for(let i = 0; i < foods.length; i++){
+  for (let i = 0; i < foods.length; i++){
     foods[i].draw();
   }
 }
@@ -67,10 +68,11 @@ function drawFrame(){
 }
 
 function checkEating(){
+  let distanceX, distanceY, distance;
   for(let i = 0; i < foods.length; i++){
-    let distanceX = foods[i].x - player.x;
-    let distanceY = foods[i].y - player.y;
-    let distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+    distanceX = foods[i].x - player.x;
+    distanceY = foods[i].y - player.y;
+    distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
 
     if (distance < foods[i].r + player.r) {
 
@@ -112,7 +114,7 @@ function move(){
 
   if(checkEating() == -1) {
     drawFrame()
-    window.removeEventListener("mousemove", handleEvent);
+    canvas.removeEventListener("mousemove", handleEvent);
     cancelAnimationFrame(aniId);
     setTimeout(function(){
       clearTimeout(timeout);
@@ -128,7 +130,7 @@ function startGame(){
 
   timeout = setTimeout(function(){
     score = player.r - 30;
-    window.removeEventListener("mousemove", handleEvent);
+    canvas.removeEventListener("mousemove", handleEvent);
     cancelAnimationFrame(aniId);
     let ans = confirm("Time is up!!! \nYour score is " + Math.trunc(score) + ".\nPlay again ?");
     if (ans) startGame();
@@ -141,7 +143,7 @@ function startGame(){
   player.draw();
   foodInit();
   drawFoods();
-  window.addEventListener("mousemove", handleEvent);
+  canvas.addEventListener("mousemove", handleEvent);
 }
 
 function handleEvent(e){
