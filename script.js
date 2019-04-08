@@ -160,18 +160,18 @@ function handleEvent(e){
 startGame();
 
 //bonus: speedup player
-let reduce_speed;
+let reduce_size;
 window.addEventListener("mousedown", function(){
   if(player.r > 31){
-    reduce_speed = setInterval(function(){ 
+    reduce_size = setInterval(function(){ 
       player.r -= 0.17; 
-      if(player.r - 0.17 < 30) clearInterVal(redude_speed); 
+      if(player.r - 0.17 < 30) clearInterVal(redude_size); 
     }, 100);
     speed = 5;
   }
 })
 
 window.addEventListener("mouseup", function(){
-  clearInterval(reduce_speed);
+  clearInterval(reduce_size);
   speed = 2.5;
 })
