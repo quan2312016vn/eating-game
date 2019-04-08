@@ -29,6 +29,8 @@ Circle.prototype.draw = function(){
   c.fillStyle= "black";
 }
 
+player = new Circle(0, 0, 0, "red");
+
 function foodInit(){
   let color, x, y, r;
   for(let i = 0; i < numberOfFoods; i++){
@@ -139,7 +141,9 @@ function startGame(){
   mouse = {x: 10000, x: 10000};
   c.clearRect(0, 0, innerWidth, innerHeight)
   foods = [];
-  player = new Circle(innerWidth/2, innerHeight/2, 30, "red");
+  player.x = innerWidth/2;
+  player.y = innerHeight/3;
+  player.r = 30;
   player.draw();
   foodInit();
   drawFoods();
@@ -159,7 +163,7 @@ startGame();
 let reduce_speed;
 window.addEventListener("mousedown", function(){
   if(player.r > 31){
-    reduce_speed = setInterval(function(){ player.r -= 0.15; }, 100);
+    reduce_speed = setInterval(function(){ player.r -= 0.18; }, 100);
     speed = 5;
   }
 })
