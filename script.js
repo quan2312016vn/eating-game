@@ -84,7 +84,7 @@ function checkEating(){
 
       if (player.r < foods[i].r){
         foods[i].r += player.r/15;
-        score = player.r - 30;
+        score = (player.r - 30)*10;
         player.r = 0;
         return -1;
       }
@@ -129,7 +129,7 @@ function startGame(){
   alert("You have 1 minute to play :3")
   //timer: 1 minute
   timeout = setTimeout(function(){
-    score = player.r - 30;
+    score = (player.r - 30)*10;
     window.removeEventListener("mousemove", handleEvent);
     cancelAnimationFrame(aniId);
     let ans = confirm("Time is up!!! \nYour score is " + Math.trunc(score) + ".\nPlay again ?");
@@ -157,7 +157,7 @@ startGame();
 
 //bonus: speedup player
 window.addEventListener("mousedown", function(){
-  speed = 4;
+  speed = 4.5;
 })
 
 window.addEventListener("mouseup", function(){
