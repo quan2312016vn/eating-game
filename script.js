@@ -156,10 +156,13 @@ function handleEvent(e){
 startGame();
 
 //bonus: speedup player
+let reduce_speed;
 window.addEventListener("mousedown", function(){
+  reduce_speed = setInterval(function(){ player.r--; }, 100);
   speed = 4.5;
 })
 
 window.addEventListener("mouseup", function(){
+  clearInterval(reduce_speed);
   speed = 2.5;
 })
