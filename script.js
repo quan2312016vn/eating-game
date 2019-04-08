@@ -29,7 +29,7 @@ Circle.prototype.draw = function(){
   c.fillStyle= "black";
 }
 
-player = new Circle(0, 0, 0, "red");
+player = new Circle(innerWidth/2, innerHeight/2, 0, "red");
 
 function foodInit(){
   let color, x, y, r;
@@ -141,10 +141,10 @@ function startGame(){
   mouse = {x: 10000, x: 10000};
   c.clearRect(0, 0, innerWidth, innerHeight)
   foods = [];
-  player.x = innerWidth/2;
-  player.y = innerHeight/3;
+  //setup player
   player.r = 30;
   player.draw();
+  //setup foods
   foodInit();
   drawFoods();
   window.addEventListener("mousemove", handleEvent);
