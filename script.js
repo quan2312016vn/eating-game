@@ -166,7 +166,7 @@ window.addEventListener("mousedown", function(){
     reduce_size = setInterval(function(){ 
       player.r -= 0.17; 
       console.log(player.r);
-      if(player.r - 0.17 < 30) {clearInterval(reduce_size);
+      if(player.r - 0.17 < 30) clearInterval(reduce_size);
     }, 100);
     speed = 5;
   }
