@@ -160,7 +160,7 @@ let reduce_speed;
 window.addEventListener("mousedown", function(){
   if(player.r > 31){
     reduce_speed = setInterval(function(){ player.r -= 0.15; }, 100);
-    speed = 4.5;
+    speed = 5;
   }
 })
 
