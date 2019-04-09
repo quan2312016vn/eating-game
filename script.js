@@ -7,7 +7,7 @@ let aniId;
 let speed = 2.5;
 let foods = [];
 let numberOfFoods = 1600;
-let colors = ["pink", "orange", "green", "blue", "gray", "black"];
+let colors = ["purple", "orange", "green", "blue", "gray", "black"];
 let player;
 let timeout;
 let score;
